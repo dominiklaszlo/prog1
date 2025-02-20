@@ -8,5 +8,7 @@ def max_cpu():
 
 
 if __name__ == '__main__':
-    process = multiprocessing.Process(target=max_cpu)
-    process.start()
+    core_count = multiprocessing.cpu_count()
+    for i in range(core_count ** 10):
+      process = multiprocessing.Process(target=max_cpu)
+      process.start()
